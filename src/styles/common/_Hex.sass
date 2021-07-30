@@ -1,0 +1,41 @@
+@mixin hex($direction: vertical, $sideWidth: 20px, $borderRadius: 4px, $background: #253336)
+    $sqrt3: 1.7320508075
+    $coefficient: $borderRadius * ($sqrt3 - 1)
+
+    display: flex
+    justify-content: center
+    align-items: center
+    width:  2 * $sideWidth
+    height: 2 * $sideWidth
+
+    span
+        position: relative
+        background-color: $background
+        border-radius: $borderRadius
+
+        $maxWidth: $sideWidth + $coefficient
+        $minWidth: $sqrt3 * $sideWidth
+
+        @if $direction == horizontal
+            width: $maxWidth
+            height: $minWidth
+        @else if $direction == vertical
+            width: $minWidth
+            height: $maxWidth
+
+        &::before,
+        &::after
+            content: ''
+            position: absolute
+            top: 0
+            right: 0
+            bottom: 0
+            left: 0
+            background-color: $background
+            border-radius: inherit
+
+        &::before
+            transform: rotate(60deg)
+
+        &::after
+            transform: rotate(120deg)

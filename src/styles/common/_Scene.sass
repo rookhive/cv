@@ -1,0 +1,19 @@
+.scene
+    opacity: 0
+    overflow: hidden
+    -webkit-tap-highlight-color: transparent
+    @extend %liquid
+
+    & > *
+        height: 100%
+
+    &__title
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%) translate3d(0, 0, 0)
+        white-space: nowrap
+        text-transform: uppercase
+        font: 1.65rem/1.65rem $font__capital
+        will-change: transform, opacity
+        opacity: 0

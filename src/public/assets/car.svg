@@ -1,0 +1,170 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="wheels" viewBox="0 0 300 100">
+        <path
+            fill="#999"
+            d="M 100 0
+                h 100
+                L 220 43
+                h 25
+                v 14
+                h -25
+                L 200 100
+                h -100
+                L 80 57
+                h -25
+                v -14
+                h 25
+                Z"/>
+        <rect fill="#888" x="100" y="0" width="100" height="100"/>
+        <circle fill="#999" cx="125" cy="25" r="15.625"/>
+        <circle fill="#999" cx="175" cy="25" r="15.625"/>
+        <circle fill="#999" cx="125" cy="75" r="15.625"/>
+        <circle fill="#999" cx="175" cy="75" r="15.625"/>
+    </symbol>
+
+    <symbol id="left-wheel" viewBox="0 0 100 100">
+        <path
+            fill="#000"
+            d="M 10 0
+                h 60
+                L 80 20
+                v 60
+                L 70 100
+                h -60
+                L 0 80
+                v -60
+                Z"/>
+    </symbol>
+
+    <symbol id="right-wheel" viewBox="0 0 100 100">
+        <path
+            fill="#000"
+            d="M 30 0
+                h 60
+                L 100 20
+                v 60
+                L 90 100
+                h -60
+                L 20 80
+                v -60
+                Z"/>
+    </symbol>
+
+    <symbol id="core" viewBox="0 0 100 400">
+        <rect fill="#666" x="0" y="0" width="100" height="400"/>
+        <circle fill="#777" cx="25" cy="25" r="15.625"/>
+        <circle fill="#777" cx="75" cy="25" r="15.625"/>
+        <circle fill="#777" cx="25" cy="75" r="15.625"/>
+        <circle fill="#777" cx="75" cy="75" r="15.625"/>
+        <circle fill="#777" cx="25" cy="125" r="15.625"/>
+        <circle fill="#777" cx="75" cy="125" r="15.625"/>
+        <circle fill="#777" cx="25" cy="175" r="15.625"/>
+        <circle fill="#777" cx="75" cy="175" r="15.625"/>
+        <circle fill="#777" cx="25" cy="225" r="15.625"/>
+        <circle fill="#777" cx="75" cy="225" r="15.625"/>
+        <circle fill="#777" cx="25" cy="275" r="15.625"/>
+        <circle fill="#777" cx="75" cy="275" r="15.625"/>
+        <circle fill="#777" cx="25" cy="325" r="15.625"/>
+        <circle fill="#777" cx="75" cy="325" r="15.625"/>
+        <circle fill="#777" cx="25" cy="375" r="15.625"/>
+        <circle fill="#777" cx="75" cy="375" r="15.625"/>
+    </symbol>
+
+    <symbol id="hood" viewBox="0 0 100 150">
+        <rect fill="#eee" x="0" y="100" width="100" height="50"/>
+        <circle fill="#fff" cx="25" cy="125" r="15.625"/>
+        <circle fill="#fff" cx="75" cy="125" r="15.625"/>
+    </symbol> 
+
+    <symbol id="spoiler" viewBox="0 0 100 100">
+        <rect fill="#eee" x="0" y="50" width="100" height="50"/>
+        <circle fill="#fff" cx="25" cy="75" r="15.625"/>
+        <circle fill="#fff" cx="75" cy="75" r="15.625"/>
+    </symbol>
+
+    <symbol id="spoiler-line" viewBox="0 0 200 50"></symbol>
+
+    <symbol id="rudder-core" viewBox="0 0 100 50">
+        <rect fill="#ccc" x="0" y="0" width="100" height="50"/>
+        <rect fill="#eee" x="25" y="0" width="50" height="7"/>
+        <rect fill="#eee" x="45" y="0" width="10" height="25"/>
+    </symbol>
+
+    <symbol id="rudder-bagel" viewBox="0 0 100 50">
+        <ellipse fill="none" stroke="#000" stroke-width="6" cx="50" cy="25" rx="37" ry="20"/>
+        <ellipse fill="none" stroke="#000" stroke-width="4" cx="50" cy="24" rx="10" ry="6"/>
+        <line stroke="#000" stroke-width="10" x1="50" x2="50" y1="3" y2="20"/>
+        <line stroke="#000" stroke-width="6" x1="42" x2="20" y1="25" y2="36"/>
+        <line stroke="#000" stroke-width="6" x1="58" x2="80" y1="25" y2="36"/>
+    </symbol>
+
+    <symbol id="chair" viewBox="0 0 100 100">
+        <circle fill="#a38470" cx="25" cy="25" r="15.625"/>
+        <circle fill="#a38470" cx="75" cy="25" r="15.625"/>
+        <rect fill="#968276" x="0" y="94" width="100" height="6"/>
+    </symbol>
+
+    <symbol id="guy" viewBox="0 0 200 150">
+        <!-- left leg -->
+        <rect fill="#338" x="50" y="50" width="45" height="93.75"/>
+        <rect fill="#449" x="50" y="50" width="45" height="18.75"/>
+        <!-- right leg -->
+        <rect fill="#338" x="105" y="50" width="45" height="93.75"/>
+        <rect fill="#449" x="105" y="50" width="45" height="18.75"/>
+        <!-- body -->
+        <rect fill="#004" x="50" y="93.75" width="100" height="50"/>
+        <rect fill="#006" x="65.625" y="93.75" width="68.75" height="50"/>
+        <!-- left fist -->
+        <rect fill="#eeee00" x="39.25" y="53.5" width="14" height="14"/>
+        <path fill="#ff0"
+            d="M 38 30
+                A 15 15 0 1 0 54 30
+                v 6.25
+                A 10 10 0 1 1 38 36.25
+                Z"/>
+        <!-- left hand -->
+        <path
+            fill="#002"
+            d="M 64 100
+                v 35
+                L 50 130
+                L 35 100
+                L 35 67
+                h 23.5
+                v 20
+                Z"/>
+        <!-- right fist -->
+        <rect fill="#eeee00" x="148.5" y="53.5" width="14" height="14"/>
+        <path fill="#ff0"
+            d="M 147.25 30
+                A 15 15 0 1 0 163.25 30
+                v 6.25
+                A 10 10 0 1 1 147.25 36.25
+                Z"/>
+        <!-- right hand -->
+        <path
+            fill="#002"
+            d="M 136 100
+                v 35
+                L 152 130
+                L 167 100
+                L 167 67
+                h -23.5
+                v 20
+                Z"/>
+        <!-- head -->
+        <circle fill="#eeee00" cx="100" cy="118.75" r="31"/>
+        <circle fill="none" stroke="#ff0" stroke-width="6" cx="100" cy="118.75" r="12.5"/>
+    </symbol>
+
+    <symbol id="helmet" viewBox="0 0 100 100">
+        <circle fill="#000" cx="50" cy="64.75" r="32"/>
+        <path
+            fill="transparent"
+            stroke="#47a6ff"
+            stroke-width="3"
+            stroke-linecap="round"
+            d="M 18 64.75
+                A 15 15 0 1 1 82 64.75"/>
+    </symbol>
+</svg>

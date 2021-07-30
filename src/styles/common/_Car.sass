@@ -1,0 +1,164 @@
+@keyframes car-wave
+    33%
+        height: 20%
+    66%
+        height: 50%
+    100%
+        height: 30%
+
+@keyframes car-wave-main
+    20%
+        height: 60%
+    40%
+        height: 80%
+    75%
+        height: 50%
+    100%
+        height: 90%
+
+.car
+    position: relative
+    width: 100%
+    will-change: left
+    z-index: 3
+
+    &__padding 
+        position: relative
+        padding-top: calc(100% / .75) // x3 to y4 proportion
+    
+    &__content 
+        @extend %liquid
+
+        & > *
+            position: absolute
+
+    &:not(.active) &__content > section
+        opacity: 0
+
+    &__wheels-front 
+        top: 0
+        left: 0
+        width: 100%
+        height: 25%
+
+    &__wheels-back 
+        bottom: 0
+        left: 0
+        width: 100%
+        height: 25%
+
+    &__front-left-wheel
+        top: 0
+        left: 0
+        width: calc(100% / 3)
+        height: 25%
+        transform-origin: 20% 50%
+            
+    &__front-right-wheel
+        top: 0
+        left: calc(100% / 3 * 2)
+        width: calc(100% / 3)
+        height: 25%
+        transform-origin: 80% 50%
+    
+    &__back-left-wheel
+        top: 75%
+        left: 0
+        width: calc(100% / 3)
+        height: 25%
+        transform-origin: 20% 50%
+    
+    &__back-right-wheel
+        top: 75%
+        left: calc(100% / 3 * 2)
+        width: calc(100% / 3)
+        height: 25%
+        transform-origin: 80% 50%
+
+    &__core 
+        top: 0
+        left: calc(100% / 3)
+        width: calc(100% / 3)
+        height: 100%
+
+    &__hood 
+        top: 0
+        left: calc(100% / 3)
+        width: calc(100% / 3)
+        height: 37.5%
+        background-image: linear-gradient(to bottom, #bbb 0%, #fff 75%)
+
+    &__spoiler 
+        bottom: 0
+        left: calc(100% / 3)
+        width: calc(100% / 3)
+        height: 25%
+        background-image: linear-gradient(to bottom, #bbb 0%, #fff 50%)
+
+        &-line
+            bottom: 0
+            left: calc(100% / 6)
+            width: calc(100% / 6 * 4)
+            height: 12.5%
+            background: #fff
+
+    &__rudder-core,
+    &__rudder-bagel
+        top: 37.5%
+        left: calc(100% / 3)
+        width: calc(100% / 3)
+        height: 12.5%
+
+    &__chair 
+        bottom: 25%
+        left: calc(100% / 3)
+        width: calc(100% / 3)
+        height: 25%
+        background-image: linear-gradient(to bottom, #926e58 60%, #754c34 100%)
+
+    &__guy
+        bottom: 25%
+        left: calc(100% / 6)
+        width: calc(100% / 3 + 100% / 6 * 2)
+        height: calc(25% + 12.5%)
+
+    &__helmet
+        bottom: 24%
+        left: calc(100% / 3)
+        width: calc(100% / 3)
+        height: 25%
+
+    &__wave
+        top: 100%
+        left: calc(100% / 3)
+        display: flex
+        justify-content: center
+        width: calc(100% / 3)
+        height: 15%
+        transform: scale(1, 0)
+        transform-origin: 0 0
+        transition: transform .5s linear
+
+        &.active
+            transform: scale(1)
+
+            span
+                animation: car-wave 1s linear infinite alternate
+                
+                &:nth-child(2)
+                    animation:
+                        name: car-wave-main
+                        duration: 2s
+
+        span
+            width: 10%
+            height: 100%
+            margin: 10% 10% 0
+            border-radius: 0 0 50% 50%
+            background: rgba(255, 255, 255, .15)
+
+            &:first-child
+                height: 30%
+                
+            &:last-child
+                height: 50%

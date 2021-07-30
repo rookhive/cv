@@ -1,0 +1,69 @@
+.about
+    background:
+        color: #2f5bbb
+        image: radial-gradient(circle, #2f5bbb, #1d3872)
+    color: #eee
+    flex-direction: column
+    @extend %flex-center
+
+    &__subscene    
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: center
+
+    &__content
+        position: relative
+        width: 100%
+        height: 70%
+        color: #eee
+        z-index: 4
+        @extend %flex-center
+
+    &__rest
+        flex-grow: 1
+    
+    &__title
+        padding: 1rem 0
+        font: 2.25rem/2.25rem $font__capital
+        opacity: 0
+    
+    &__car
+        position: relative
+        width: 20vw
+        max-width: 100px
+
+    &__controls
+        position: absolute
+        top: 50%
+        left: 50%
+        display: flex
+        opacity: 0
+        z-index: 4
+
+        & > button
+            width: 30vw
+            height: 20vw
+            max-width: 150px
+            max-height: 100px
+            background: rgba(255, 255, 255, .05)
+            color: #fff
+            cursor: pointer
+
+            &:hover
+                background: rgba(255, 255, 255, .1)
+
+            .icon
+                position: relative
+                width: 30%
+                stroke: rgba(255, 255, 255, .75)
+                z-index: 3
+
+        &-repeat
+            border-radius: 10% 0 0 10%
+
+        &-next
+            position: relative
+            border-radius: 0 10% 10% 0
+            overflow: hidden
+        

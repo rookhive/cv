@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Humble Junior's CV</title>
+        <meta charset="utf-8">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1, user-scalable=no">
+        <link href="css/styles.css" rel="stylesheet"/>
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        <script src="js/app.js" defer></script>
+    </head>
+    <body>
+        <div class="font-loader"></div>
+        <header class="header">
+            <section id="locator" class="header__locator"></section>
+            <section class="header__menu"></section>
+        </header>
+        <div class="app-loader">
+            <div class="loader"></div>
+        </div>
+        <main id="app" class="app"></main>
+        <div id="menu" class="menu"></div>
+        <button class="menu-button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <script id="modernizr" src="js/modernizr.js"></script>
+        <script>
+            for (var key in Modernizr) {
+                if (Modernizr.hasOwnProperty(key) && Modernizr[key] === false) {
+                    document.body.innerHTML = 
+                        '<div class="bad-browser-warning">' +
+                            'Your browser is obsolete and not compatible ' +
+                            'with this site, sorry.' +
+                        '</div>'
+                    break
+                }
+            }
+            document.body.removeChild(document.getElementById('modernizr'))
+            delete window.Modernizr
+        </script>
+    </body>
+</html>

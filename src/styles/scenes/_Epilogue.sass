@@ -1,0 +1,60 @@
+.epilogue
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    background:
+        color: #fff
+        image: linear-gradient(135deg, $color__darkred, $color__darkblue)
+    color: #eee
+
+    &__content
+        max-width: 700px
+        padding: 6rem 1.5rem 2rem
+        border-radius: .25rem
+        opacity: 0
+
+    &__title
+        padding: 0 .5rem
+        font: 2rem/2rem $font__capital
+
+    &__message
+        padding: 1rem .5rem
+        font: 1rem/1.5rem $font__sans
+
+        .x-p
+            display: block
+            padding: 1rem 0 .5rem
+
+            .word
+                opacity: 1
+
+            @media (max-height: 500px)
+                padding: .5rem 0
+
+    &__link
+        float: left
+        position: relative
+        display: flex
+        align-items: center
+        margin: .5rem
+        padding: 1rem
+        background: rgba(255, 255, 255, .035)
+        border-radius: .5rem
+        color: #fff
+        opacity: 0
+
+        &-image
+            width: 2rem
+            height: 2rem
+
+            use
+                fill: #fff
+
+        &-text
+            display: inline-block
+            padding: 0 0 0 1rem
+            font: .9rem/1.2rem $font__sans
+
+        &:hover
+            background: rgba(255, 255, 255, .075)

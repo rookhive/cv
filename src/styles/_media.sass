@@ -1,0 +1,27 @@
+$controlScreenHeight: 768
+
+@function fontSizeByCoeff($s)
+    @return calc(100vh * #{$s} / #{$controlScreenHeight})
+
+@mixin tablet($minScreenHeight, $coefficient)
+    @media (min-height: #{$minScreenHeight})
+        font-size: #{fontSizeByCoeff($coefficient)}
+
+@mixin pc($minScreenWidth, $coefficient)
+    @media (min-width: #{$minScreenWidth})
+        font-size: #{fontSizeByCoeff($coefficient)}
+
+
+@media screen
+
+    html
+        font-size: fontSizeByCoeff(12)
+
+        @include tablet(300px,  17)
+        @include tablet(500px,  16)
+        @include tablet(550px,  15)
+        @include tablet(600px,  13)
+        @include tablet(800px,  12)
+        @include tablet(900px,  11.5)
+        @include tablet(1000px, 11)
+        @include tablet(1025px, 10)

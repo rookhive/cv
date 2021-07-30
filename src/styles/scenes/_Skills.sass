@@ -1,0 +1,312 @@
+.skills
+    $maxSkillsWidth: 400px
+
+    background:
+        color: #0e8a61
+        image: radial-gradient(circle, #0e8a61, #004730)
+    color: #f4f4f4
+
+    &__interface
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        height: inherit
+        visibility: hidden
+        opacity: 0
+        transition: all 1s linear
+
+        &.ready
+            visibility: visible
+            opacity: 1
+
+        & > *
+            flex-shrink: 0
+
+    &__header
+        width: 100%
+        box-shadow: 0 0 2vh rgba(0, 0, 0, .2)
+        
+        &-shadow
+            height: 10vh
+            min-height: 60px
+            max-height: 80px
+
+    &__categories
+        display: flex
+        justify-content: space-between
+        max-width: 400px
+        margin: 0 auto
+        padding: 0 4rem
+        opacity: 0
+        -webkit-tap-highlight-color: transparent
+
+    &__category-button
+        position: relative
+        padding: 1rem 1rem .75rem
+        border-bottom: 1px solid transparent
+        font: 1.25rem/1.25rem $font__capital
+        text-transform: uppercase
+        color: #e4e4e4
+        cursor: pointer
+
+        &::after
+            content: ''
+            position: absolute
+            top: 100%
+            left: 50%
+            width: 0
+            height: 2px
+            background: rgba(255, 255, 255, .5)
+            transform: translateX(-50%)
+            transition: width .25s ease-out
+
+        &.active::after
+            width: calc(100% - 2rem)
+
+    &__viewer
+        height: 100%
+        overflow: hidden
+        -webkit-tap-highlight-color: transparent
+
+        &-wrapper
+            position: relative
+            flex-grow: 1
+            width: 100%
+            overflow: hidden
+
+    &__techs
+        visibility: hidden
+        transform: translateX(0)
+        opacity: 0
+        pointer-events: none
+        overflow: hidden
+        @extend %flex-center, %liquid
+
+        & > div
+            max-height: 100%
+            padding: 1rem 2rem
+            overflow:
+                x: hidden
+                y: scroll
+            -webkit-overflow-scrolling: touch
+
+        &.ready button
+            opacity: 1
+
+        &.chosen
+            visibility: hidden !important
+            
+            button
+                pointer-events: none !important
+                transition: opacity .5s linear, visibility .5s linear
+                opacity: 0 !important
+
+        &.active
+            pointer-events: auto
+        
+        & > div > div
+            width: 100%
+            max-width: $maxSkillsWidth
+            margin: auto
+            text-align: center
+
+        button
+            width: calc((100% - 2rem) / 3)
+            height: 6rem
+            margin: .3rem
+            padding: .5rem
+            word-break: break-word
+            background: rgba(255, 255, 255, .025)
+            border-radius: .3rem
+            vertical-align: middle
+            text-align: center
+            font: 1.2rem/1.2rem $font__capital
+            color: inherit
+            transition: opacity .5s linear, background .35s linear,
+            visibility .5s linear
+            -webkit-tap-highlight-color: transparent
+            opacity: 0
+            cursor: pointer
+
+            @media (hover: hover)
+
+                &:not(.active):hover
+                    background: rgba(255, 255, 255, .05)
+
+    &__footer
+        width: 100%
+        padding: 1rem 2rem
+        box-shadow: 0 0 2vh rgba(0, 0, 0, .2)
+
+        &-content
+            width: inherit
+            max-width: $maxSkillsWidth + 30px
+            margin: auto
+        
+    &__next
+        float: right
+        position: relative
+        padding: 1rem 3rem
+        background: rgba(255, 255, 255, .025)
+        box-shadow: 0 0 4px rgba(0, 0, 0, .1)
+        border-radius: .5rem
+        overflow: hidden
+        opacity: 0
+        cursor: pointer
+
+        &:hover
+            background: rgba(255, 255, 255, .05)
+
+        span
+            text-transform: uppercase
+            font: 1rem/1rem $font__sans
+            color: #eee
+
+    &__details
+        position: absolute
+        top: 0
+        right: 2rem
+        bottom: 0
+        left: 2rem
+        border-radius: .3rem
+        background: rgba(255, 255, 255, .05)
+        overflow: hidden
+        @extend %flex-center
+
+        &-content
+            position: relative
+            visibility: hidden
+            width: 100%
+            max-height: 100%
+            max-width: $maxSkillsWidth
+            transition: opacity .35s linear, visibility .35s linear
+            opacity: 0
+            pointer-events: none
+
+            &.active
+                visibility: visible
+                margin: auto
+                opacity: 1
+
+            &.scrollable
+                -webkit-overflow-scrolling: touch
+                pointer-events: auto
+
+        &-wrapper
+            width: calc(100% + 50px)
+            max-width: $maxSkillsWidth + 50px
+            height: inherit
+            padding: 2rem
+                right: calc(2rem + 50px)
+            overflow:
+                y: auto
+
+        &-header
+            display: flex
+            justify-content: space-between
+            align-items: center
+            padding: 0 0 2rem
+
+        &-title
+            flex-grow: 1
+            font: 2rem/2rem $font__capital
+
+        &-close
+            width: 2rem
+            height: 2rem
+
+            button
+                width: 4rem
+                height: 4rem
+                margin: -1rem 0 0 -1rem
+                cursor: pointer
+                @extend %tap-color
+
+                &:hover .icon
+                    stroke: #fff
+            
+            svg
+                width: 2rem
+                height: 2rem
+                stroke: #ccc
+                    width: 3
+                transition: stroke .25s linear
+
+        &-description
+            font: .9rem/1.4rem $font__sans
+
+            a
+                border-bottom: .25rem solid rgba(255, 255, 255, .2)
+                color: #f4f4f4
+                transition: border-color .15s linear
+
+                &:hover
+                    border-color: rgba(255, 255, 255, .35)
+
+            .x
+
+                &-p
+                    display: block
+                    
+                    &:not(:last-child)
+                        margin: 0 0 1.5rem
+                
+                &-li
+                    display: block
+                    position: relative
+                    margin-left: 1.2rem
+                    line-height: 1.4rem
+
+                    &:not(:first-child):not(:last-child)
+                        margin: 1rem 0 1rem 1.2rem
+
+                    &::before
+                        content: ''
+                        position: absolute
+                        top: .4rem
+                        left: -1.2rem
+                        width: .4rem
+                        height: .4rem
+                        border-radius: .1rem
+                        background: rgba(255, 255, 255, .5)
+
+    &__greeting
+        z-index: 9
+        background: transparent
+        @extend %flex-center, %liquid
+
+        &-content
+            position: relative
+            width: 80vw
+            max-width: $maxSkillsWidth - 50px
+            padding-right: 6rem
+            background:
+                color: #0c7c57
+                image: linear-gradient(165deg, #0e8a61, #0b704f)
+            border-radius: .5rem
+            box-shadow: 0 0 15px rgba(0, 0, 0, .15)
+            color: #fff
+            overflow: hidden
+            @extend %flex-center
+
+        &-message
+            flex-grow: 1
+            padding: 2rem 0 2rem 2rem
+            border-radius: .5rem 0 0 .5rem
+            font: .8rem/1.35rem $font__sans
+            color: #fff
+        
+        &-close
+            position: absolute
+            top: 0
+            right: 0
+            bottom: 0
+            display: flex
+            justify-content: center
+            align-items: center
+            width: 7rem
+            border-radius: 0 .5rem .5rem 0
+            text-transform: uppercase
+            font: 1.75rem/1.75rem $font__capital
+            color: #fff
+            cursor: pointer

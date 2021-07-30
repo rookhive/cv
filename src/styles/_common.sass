@@ -1,0 +1,124 @@
+@supports not (--css: variables)
+    // Alas! Your browser is pretty shitty..
+
+\:root
+    --road-line-start: calc(100vh / 12)
+    --road-line-end: calc(100vh / 6)
+
+html,
+body
+    height: 100%
+    background: $app__background
+    font: 10px/10px $font__sans
+    color: $app__color
+    -webkit-font-smoothing: antialiased
+    font-smoothing: antialiased
+    overflow: hidden
+    cursor: default
+    @extend %tap-color
+
+body
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+
+    &.ready
+
+        .header,
+        .menu-button
+            visibility: visible
+            opacity: 1
+
+.font-loader
+    visibility: hidden
+    z-index: -1
+
+    &::after
+        content: 'шрифт loader'
+        font: 2rem/2rem $font__capital
+    
+    &::before
+        content: 'шрифт loader'
+        font: 1rem/1rem $font__sans
+
+.app-loader
+    @extend %liquid
+
+.bad-browser-warning
+    position: absolute
+    top: 50%
+    left: 50%
+    max-width: 300px
+    margin: -45px 0 0 -150px
+    padding: 15px 25px
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .1)
+    border-left: 3px solid $color__red
+    background: #fff
+    font: 18px/28px 'Arial Narrow'
+
+.line
+    text-align: inherit
+    white-space: nowrap
+    word-break: keep-all
+    opacity: 0
+
+.word
+    position: relative
+    white-space: nowrap
+    opacity: 0
+
+.letter
+    position: relative
+    opacity: 0
+
+.pointer-events-none *
+    pointer-events: none !important
+    user-select: none !important
+
+@keyframes blinking
+
+    from
+        transform: translate(-50%, -50%) scale(0)
+        opacity: 1
+    to
+        transform: translate(-50%, -50%) scale(1)
+        opacity: 0
+
+.blinking
+
+    &::before,
+    &::after
+        $diameter: 100% * 1.4142
+
+        content: ''
+        position: absolute
+        top: 50%
+        left: 50%
+        width: $diameter
+        padding-top: $diameter
+        transform: translate(-50%, -50%)
+        border-radius: 50%
+        background: rgba(255, 255, 255, .075)
+        animation: blinking 4.5s ease-out infinite
+        opacity: 0
+        z-index: 2
+
+    &::after
+        animation-delay: 2.25s
+
+    &_light
+
+        &::before,
+        &::after
+            background: rgba(255, 255, 255, .15)
+
+svg.icon
+    width: 100%
+    height: 100%
+    fill: transparent
+    stroke:
+        width: 7px
+        linejoin: round
+        linecap: round

@@ -1,0 +1,71 @@
+@mixin iHex($direction, $sideWidth, $borderRadius, $background, $imageUrl: null)
+
+    $sqrt3: 1.7320508075
+    $diameter: 2 * $sideWidth
+    $coefficient: $borderRadius * ($sqrt3 - 1)
+
+    position: relative
+    display: inline-flex
+    justify-content: center
+    align-items: center
+    width: $diameter
+    height: $diameter
+
+    span
+        position: absolute
+        top: 50%
+        left: 50%
+        background-color: $background
+        border-radius: $borderRadius
+        overflow: hidden
+
+        $maxWidth: $sideWidth + $coefficient
+        $minWidth: $sqrt3 * $sideWidth
+
+        @if $direction == horizontal
+            width: $maxWidth
+            height: $minWidth
+            margin-top: -$minWidth / 2
+            margin-left: -$maxWidth / 2
+
+        @else if $direction == vertical
+            width: $minWidth
+            height: $maxWidth
+            margin-top: -$maxWidth / 2
+            margin-left: -$minWidth / 2
+
+        @if ($imageUrl)
+            background-color: transparent
+
+            &::before
+                content: ''
+                position: absolute
+                top: 50%
+                left: 50%
+                background-image: url($imageUrl)
+                background-size: cover
+                transform:
+                    origin: 50% 50%
+                width: $diameter
+                height: $diameter
+                margin-top: -$sideWidth
+                margin-left: -$sideWidth
+
+        &:first-child
+            transform: rotate(60deg)
+
+            @if ($imageUrl)
+                &::before
+                    transform: rotate(-60deg)
+
+        &:nth-child(2)
+
+            @if ($imageUrl)
+                &::before
+
+        &:last-child
+            transform: rotate(120deg)
+
+            @if ($imageUrl)
+                &::before
+                    transform: rotate(-120deg)

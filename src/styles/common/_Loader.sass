@@ -1,0 +1,29 @@
+@keyframes loader-animation
+
+    to
+        transform: rotate(360deg)
+
+.loader
+    $size: 10vmin
+    position: absolute
+    top: 50%
+    left: 50%
+    width: $size
+    height: $size
+    max-width: 45px
+    max-height: 45px
+    transform: translate(-50%, -50%)
+
+    &:after
+        content: ''
+        display: block
+        width: inherit
+        height: inherit
+        max-width: 45px
+        max-height: 45px
+        box-sizing: border-box
+        border-radius: 50%
+        border: 1px solid transparent
+        border-color: transparent $color__blue
+        animation: loader-animation 1.5s ease-in-out infinite
+        

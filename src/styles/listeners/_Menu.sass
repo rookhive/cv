@@ -1,0 +1,207 @@
+@keyframes scene-item-loading
+    to
+        background: $color__blue
+
+.menu
+    visibility: hidden
+    background: rgba(0, 0, 0, .25)
+    -webkit-tap-highlight-color: transparent
+    pointer-events: none
+    overflow: hidden
+    opacity: 0
+    color: #ccc
+    z-index: 100
+    @extend %liquid
+
+    &.active
+        visibility: visible
+        pointer-events: auto
+        opacity: 1
+
+    &, &__content
+        transition: all .3s ease-out
+
+    &.active, &.active &__content
+        transition: all .6s ease-in
+
+    &__content
+        counter-reset: scenes
+        position: absolute
+        top: .5rem
+        right: .5rem
+        max-width: 275px
+        border-radius: .35rem
+        background: rgba(0, 0, 0, .75)
+        // backdrop-filter: blur(5px)
+
+        &::before,
+        &::after
+            content: ''
+            display: block
+            height: calc((10vh - 6px - 1.32rem) / 2 - .5rem)
+            min-height: calc((54px - 1.32rem) / 2 - .5rem)
+            max-height: calc((74px - 1.32rem) / 2 - .5rem)
+
+    &__scenes
+        padding: 0 3.5rem
+
+    &__scene-item,
+    &__subscene-item
+        transition: color .5s linear
+        cursor: pointer
+
+        &:active
+            transition: none
+            color: $color__blue
+
+        &.loading::after
+            width: 3px
+            animation:
+                name: scene-item-loading
+                duration: .5s
+                direction: alternate
+                iteration-count: infinite
+                timing-function: ease-in-out
+
+    &__scene-item::before,
+    &__scene-item::after,
+    &__subscene-item::after
+        transition: all .5s linear
+        cursor: default
+
+    &__scene-item
+        position: relative
+        margin-top: 1.5rem
+        text-transform: uppercase
+        font: 1.75rem/1.75rem $font__capital
+
+        &:first-child
+            margin-top: 0
+
+        &::before
+            counter-increment: scenes
+            content: counter(scenes, decimal-leading-zero)
+            position: absolute
+            top: 0
+            left: -2rem
+            color: $color__blue
+
+        &::after
+            content: ''
+            position: absolute
+            top: 4px
+            left: -3.5rem
+            bottom: 2px
+            width: 0
+            border-radius: 0 2px 2px 0
+        
+    &__scene-item.active
+        color: $color__blue
+
+        &::after
+            width: 3px
+            background: $color__blue
+        
+    &__subscene-wrapper
+        position: relative
+        margin-top: .75rem
+
+        &::before
+            content: ''
+            position: absolute
+            top: 0
+            bottom: 0
+            left: -15px
+            border-left: 1px dotted #444
+
+    &__subscene-item
+        padding: .5rem 0
+        position: relative
+        font: 1.5rem/1.5rem $font__capital
+
+        &::after
+            content: ''
+            position: absolute
+            top: 8px
+            bottom: 7px
+            left: -15px
+            width: 0
+            border-radius: 0 2px 2px 0
+
+    &__subscene-item.active
+        color: $color__blue
+
+        &::after
+            width: 3px
+            background: $color__blue
+
+    &-button
+        visibility: hidden
+        position: fixed
+        top: 0
+        right: 0
+        width: 10vh
+        height: 10vh
+        min-width: 60px
+        min-height: 60px
+        max-width: 80px
+        max-height: 80px
+        cursor: pointer
+        transition: opacity 1s linear
+        opacity: 0
+        z-index: 110
+
+        span
+            position: absolute
+            display: block
+            top: 50%
+            left: 50%
+            width: 2rem
+            height: 1px
+            margin: 0 0 0 -1rem
+            border-radius: 1px
+            background: $app__color
+            transition-property: background, transform, opacity
+            transition-timing-function: linear, ease-in-out, linear
+            transition-duration: .5s, .3s, .3s
+
+            &:first-child
+                margin-top: -.66rem
+
+            &:last-child
+                margin-top: .66rem
+
+        &.active span
+            background: #ccc !important
+
+            &:first-child
+                transform: translate(0, .66rem) rotate(45deg)
+            
+            &:nth-child(2)
+                opacity: 0
+
+            &:last-child
+                transform: translate(0, -.66rem) rotate(-45deg)
+
+    &__buttons
+        margin: 1rem 1.5rem 0
+        @extend %flex-center
+
+    &__button
+        flex-grow: 1
+        margin-top: 1rem
+        padding: 1rem 0
+        background: rgba(255, 255, 255, .015)
+        text-transform: uppercase
+        font: .8rem/.8rem $font__sans
+        transition: background .15s linear
+        color: #bbb
+
+        &:not(.active):hover
+            background: rgba(255, 255, 255, .025)
+            cursor: pointer
+
+        &.active
+            border-bottom: 1px solid $color__blue
+            background: rgba(255, 255, 255, .035)
+            color: #ccc

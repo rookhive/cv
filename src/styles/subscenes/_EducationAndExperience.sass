@@ -1,0 +1,62 @@
+@keyframes road-lines
+    to
+        transform: translateY(var(--road-line-end))
+
+.education-and-experience
+    
+    &__road
+        position: absolute
+        top: -(100vh / 6)
+        right: 0
+        bottom: 0
+        left: 0
+        @extend %flex-center
+
+    &__road-lines
+        $color: rgba(255, 255, 255, .075)
+        $height: var(--road-line-start)
+        width: 2vw
+        max-width: 8px
+        height: 100%
+        opacity: 0
+        background: repeating-linear-gradient(to bottom,
+        transparent 0, transparent $height, $color $height,
+        $color var(--road-line-end))
+        will-change: transform
+
+        &.ready
+            animation: road-lines 1s linear infinite
+
+    .car
+        position: absolute
+        top: 0
+        left: 100%
+        opacity: 0
+        will-change: left
+
+.black-thought
+    position: absolute
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    font: 1.2rem/1.3rem $font__capital
+    color: rgba(255, 255, 255, .25)
+
+    &__arrow
+        width: 12.5vw
+        height: 18.75vw
+        max-width: 65px
+        max-height: 97.5px
+        @extend %flex-center
+
+        svg
+            width: inherit
+            height: inherit
+
+        &_reversed
+            transform: scale(-1, 1)
+    
+    &__slogan
+        padding: .5rem 1rem 1rem
+        text-align: center
